@@ -12,6 +12,8 @@ body{
 @layer base {
   body {
     @apply bg-gradient-to-b from-[#14181c] to-[#14181c] relative;
+    background-attachment: fixed;
+    background-size: cover;
   }
   body::before {
     content: "";
