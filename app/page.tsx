@@ -1,101 +1,75 @@
-import Image from "next/image";
+import Features from "@/components/Features";
+import TheFooter from "@/components/TheFooter";
+import UserInput from "@/components/UserInput";
+import Logo from "@/public/recollage.svg";
+import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const features = [
+    {
+      title: "Gatekeep your Hidden Gems",
+      sub: "Keep your guilty pleasures a secret",
+      content:
+        "Hide movies from your collage to keep your cinema taste mysterious.",
+      image: "gatekeep",
+    },
+    {
+      title: "Want to show off the old you?",
+      sub: "Your backup movies got you covered",
+      content: "Easily swap it for another movie from your list.",
+      image: "spare",
+    },
+    {
+      title: "Move Posters Freely",
+      sub: "No More Fixed Grids",
+      content:
+        "Manually reorder your collage – highlight your favorites however you want.",
+      image: "move",
+    },
+    {
+      title: "Customize Your Posters",
+      sub: "Choose your posters, just like a pro",
+      content:
+        "Select from multiple poster options and truly reflect your personal taste.",
+      image: "customize",
+    },
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+  return (
+    <div className="relative h-full min-h-screen flex flex-col items-center justify-between pt-32">
+      <Link
+        href="https://recollagefm.vercel.app"
+        className="absolute top-4 right-4 animate-pulse group inline-flex items-center gap-1"
+      >
+        <span className="group-hover:underline">
+          Check out the Last.fm Recollage
+        </span>
+        <ArrowUpRight className="group-hover:translate-x-1 transition group-hover:-translate-y-1" />
+      </Link>
+      <div>
+        <Logo className="~w-[16rem]/[36rem] h-auto fill-current pb-4 px-2" />
+      </div>
+      <div className="bg-white/5 backdrop-blur-md border-t border-[#b2bdc8]/20 w-fit h-fit p-4 flex flex-col gap-2 items-center justify-center rounded-sm text-white ~text-xs/base relative mx-auto">
+        <div className="absolute -top-1 -right-1 w-4 h-4 bg-orange-500 rounded-full animate-ping"></div>
+        <span>Only works with diary entries, with a limit of 50 movies.</span>
+        <span className="~text-xs/base">
+          This app is not affiliated with Letterboxd. All rights belong to them.
+        </span>
+      </div>
+      <UserInput />
+      <div className="flex flex-wrap justify-between items-center min-w-96 gap-6 px-4 mt-4">
+        {features.map((f, index) => (
+          <Features
+            key={index}
+            title={f.title}
+            content={f.content}
+            sub={f.sub}
+            image={f.image}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        ))}
+      </div>
+      <TheFooter />
     </div>
   );
 }
