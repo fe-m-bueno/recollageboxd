@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import CollageProvider from "@/context/CollageContext";
 
@@ -36,6 +36,16 @@ export const metadata: Metadata = {
       "Create a personalized movie grid from your top Letterboxd movies.",
     images: ["https://recollageboxd.vercel.app/ogcard.png"],
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#14181c",
+  width: "device-width",
+  initialScale: 1,
+  minimumScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({

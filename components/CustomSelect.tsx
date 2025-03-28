@@ -34,7 +34,7 @@ const CustomSelect = <T extends string | number>({
       <Listbox value={value} onChange={onChange}>
         <ListboxButton className="w-full flex justify-between items-center  bg-[#8899aa] border-t border-[#b2bdc8] px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 dark:focus:ring-white/50 ~text-xs/base text-black">
           {options.find((o) => o.value === value)?.label}
-          <ChevronDown className="pl-1 ~h-3/6 ~w-2/6 text-[#323540]" />
+          <ChevronDown className="pl-1 ~h-5/6 ~w-4/6 text-[#323540]" />
         </ListboxButton>
 
         <ListboxOptions
@@ -55,7 +55,7 @@ const CustomSelect = <T extends string | number>({
               {({ selected }) => (
                 <div className="flex items-center justify-between ~text-xs/base">
                   {option.label}
-                  {selected && <Check className="pl-1 ~h-3/6 ~w-2/6" />}
+                  {selected && <Check className="pl-1 ~h-5/6 ~w-4/6" />}
                 </div>
               )}
             </ListboxOption>

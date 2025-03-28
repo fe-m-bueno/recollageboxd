@@ -86,7 +86,7 @@ const MovieModal: React.FC<MovieModalProps> = ({ movie, closeModal }) => {
         <div className="space-y-6">
           <div>
             <h4 className="font-bold mb-2">Display Options</h4>
-            <div className="space-y-2">
+            <div className="flex flex-row md:flex-col items-center md:items-start gap-2 justify-between">
               <CustomCheckbox
                 label="Display Movie Name"
                 checked={movie.displayMovieName}
@@ -103,14 +103,14 @@ const MovieModal: React.FC<MovieModalProps> = ({ movie, closeModal }) => {
             <h4 className="font-bold mb-2">Replace Poster</h4>
             {loading ? (
               <div className="flex flex-col items-center justify-center">
-                <div className="grid grid-cols-2 gap-4 min-h-[30vh] max-h-96 overflow-y-auto w-full">
+                <div className="grid grid-cols-2 gap-4 min-h-[20vh] ~max-h-64/96 overflow-y-auto w-full">
                   {Array.from({ length: 12 }).map((_, index) => (
                     <Skeleton key={index} className="aspect-[2/3] w-full" />
                   ))}
                 </div>
               </div>
             ) : (
-              <div className="grid grid-cols-2 gap-4 min-h-[30vh] max-h-96 overflow-y-auto w-full">
+              <div className="grid grid-cols-2 gap-4 min-h-[20vh] ~max-h-64/96 overflow-y-auto w-full">
                 {posters.map((poster, index) => (
                   <div
                     key={index}
