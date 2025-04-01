@@ -29,7 +29,7 @@ const Features = ({
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 1300);
+      setIsMobile(window.innerWidth <= 1600);
     };
 
     handleResize();

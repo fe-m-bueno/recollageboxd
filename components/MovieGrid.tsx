@@ -16,6 +16,7 @@ import {
   SortableContext,
   rectSortingStrategy,
 } from "@dnd-kit/sortable";
+import { Button } from "./ui/button";
 
 interface MovieGridProps {
   filterDates: { start: string; end: string };
@@ -143,12 +144,13 @@ const MovieGrid: React.FC<MovieGridProps> = ({ filterDates }) => {
         {displayedMovies.length !== 0 && (
           <section id="spare" className="mt-4 flex flex-col items-center">
             {replacementTarget ? (
-              <button
+              <Button
+                variant="destructive"
                 onClick={handleCancelReplacement}
                 className="mb-4 mt-2 w-full sm:w-auto hover:bg-[#9d0000] bg-[#ac0000] border-t border-[#c54d4d] text-white hover:text-white"
               >
                 Cancel replacement
-              </button>
+              </Button>
             ) : (
               <h2 className="text-lg font-bold p-4">Backup movies</h2>
             )}

@@ -37,7 +37,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="relative h-full min-h-screen flex flex-col items-center justify-between pt-32">
+    <div className="relative h-screen flex flex-col items-center justify-between pt-32">
       <Link
         href="https://recollagefm.vercel.app"
         className="absolute top-4 right-4 animate-pulse group inline-flex items-center gap-1"

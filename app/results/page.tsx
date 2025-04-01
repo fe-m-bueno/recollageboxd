@@ -14,14 +14,18 @@ const ResultsPage: React.FC = () => {
   if (!collageUrl) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <p>Nenhum collage disponível.</p>
+        <p>No collage available.</p>
       </div>
     );
   }
 
   return (
-    <div className="h-screen flex flex-col items-center justify-center bg-slate-950">
-      <img src={collageUrl} alt="Collage Generated" className="h-100%" />
+    <div className="h-screen flex flex-col items-center justify-start bg-slate-950">
+      <img
+        src={collageUrl}
+        alt="Collage Generated"
+        className="max-h-screen h-100% w-100%"
+      />
     </div>
   );
 };
