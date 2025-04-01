@@ -53,8 +53,10 @@ const MovieGrid: React.FC<MovieGridProps> = ({ filterDates }) => {
     replacementTarget !== null ? filteredMovies : filteredMovies;
 
   const defaultColumns =
-    settings.gridSize === "10x10"
+    settings.gridSize === "5x10"
       ? 5
+      : settings.gridSize === "4"
+      ? 2
       : parseInt(settings.gridSize.split("x")[0]);
 
   const [computedColumns, setComputedColumns] =
@@ -72,6 +74,8 @@ const MovieGrid: React.FC<MovieGridProps> = ({ filterDates }) => {
         else newColumns = 5;
       } else if (settings.gridSize === "5x5") {
         newColumns = width < 1000 ? 2 : 5;
+      } else if (settings.gridSize === "4") {
+        newColumns = width < 800 ? 2 : 2;
       } else {
         newColumns = defaultColumns;
       }

@@ -43,7 +43,11 @@ const UserInput = () => {
       }));
 
       const gridCount =
-        gridSize === "5x10" ? 50 : parseInt(gridSize.split("x")[0]) ** 2;
+        gridSize === "5x10"
+          ? 50
+          : gridSize === "4"
+          ? 4
+          : parseInt(gridSize.split("x")[0]) ** 2;
       const spareCount = 30;
       const mainMovies = movies.slice(0, gridCount);
       const spareMovies = movies.slice(gridCount, gridCount + spareCount);
@@ -65,6 +69,7 @@ const UserInput = () => {
   }, []);
 
   const gridSizeOptions = [
+    { value: "4", label: "Last 4" },
     { value: "3x3", label: "3x3" },
     { value: "4x4", label: "4x4" },
     { value: "5x5", label: "5x5" },

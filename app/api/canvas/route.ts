@@ -183,7 +183,9 @@ export async function POST(request: Request) {
     const cellHeight = Math.floor(cellWidth * 1.5);
 
     const totalMovies = movies.length;
-    const columns = Math.ceil(totalMovies === 50 ? 5 : Math.sqrt(totalMovies));
+    const columns = Math.ceil(
+      totalMovies === 50 ? 5 : totalMovies === 4 ? 4 : Math.sqrt(totalMovies)
+    );
     const rows = Math.ceil(totalMovies / columns);
 
     const canvasWidth = columns * cellWidth;
