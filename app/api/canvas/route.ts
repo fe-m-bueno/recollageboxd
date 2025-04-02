@@ -73,9 +73,13 @@ function drawTextWithFallback(
 ) {
   let offsetX = x;
   const lineHeight = fontSize + 4;
+  const segmenter = new Intl.Segmenter(undefined, { granularity: "grapheme" });
+  const segments = Array.from(segmenter.segment(text)).map(
+    (seg) => seg.segment
+  );
 
-  for (const char of text) {
-    const fontToUse = getBestFontForChar(char);
+  for (const grapheme of segments) {
+    const fontToUse = getBestFontForChar(grapheme);
     ctx.font = `${fontSize}px ${fontToUse}`;
     ctx.textBaseline = "top";
     ctx.fillStyle = "white";
@@ -91,15 +95,15 @@ function drawTextWithFallback(
       ctx.shadowBlur = 0;
     }
 
-    if (offsetX + ctx.measureText(char).width > x + maxWidth) {
+    if (offsetX + ctx.measureText(grapheme).width > x + maxWidth) {
       offsetX = x;
       y += lineHeight;
     }
 
-    ctx.strokeText(char, offsetX, y + 0.9);
-    ctx.fillText(char, offsetX, y);
+    ctx.strokeText(grapheme, offsetX, y + 0.9);
+    ctx.fillText(grapheme, offsetX, y);
     ctx.shadowColor = "transparent";
-    offsetX += ctx.measureText(char).width;
+    offsetX += ctx.measureText(grapheme).width;
   }
 
   return y + lineHeight;
